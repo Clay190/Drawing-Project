@@ -25,6 +25,7 @@ def moveUp(event):
 def moveDown(event):
     if box.y < (ROWS)*CELL_SIZE: 
         box.y += CELL_SIZE
+        ['numbox'] 
         
         
 def drawingOnOff(event):
@@ -34,7 +35,8 @@ def drawingOnOff(event):
 if __name__ == '__main__':
     
     data = {}
-    data['numbox'] = 0
+    data['numX'] = 0
+    data['numY'] = 0
     
     #colors
     red = Color(0xFF0000,1)
@@ -46,7 +48,7 @@ if __name__ == '__main__':
     
     boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,color),color)
 
-    box = Sprite(boxAsset)
+    box = Sprite(boxAsset, (numX,numY))
     
     #Running the program
     App().listenKeyEvent('keydown','right arrow',moveRight)
