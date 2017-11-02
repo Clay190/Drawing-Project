@@ -48,7 +48,7 @@ if __name__ == '__main__':
     
     boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,color),color)
 
-    box = Sprite(boxAsset, (numX,numY))
+    box = Sprite(boxAsset)
     
     #Running the program
     App().listenKeyEvent('keydown','right arrow',moveRight)
