@@ -26,8 +26,15 @@ def moveDown(event):
     if box.y < (ROWS)*CELL_SIZE: 
         box.y += CELL_SIZE
         
+        
+    def drawingOnOff(event):
+        print('d')
+        
 #runs the game
 if __name__ == '__main__':
+    
+    data = {}
+    data['numbox'] = 0
     
     #colors
     red = Color(0xFF0000,1)
