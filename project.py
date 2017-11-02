@@ -5,13 +5,13 @@
 from ggame import *
 
 #constants
-ROWS = 26
+ROWS = 25
 COLS = 50
 CELL_SIZE = 20
 
 #getting the cursor to move
 def moveRight(event):
-    if box.x < (COLS-1)*CELL_SIZE:
+    if box.x < (COLS)*CELL_SIZE:
         box.x += CELL_SIZE
 
 def moveLeft(event):
@@ -23,7 +23,7 @@ def moveUp(event):
         box.y -= CELL_SIZE
 
 def moveDown(event):
-    if box.y < (ROWS-1)*CELL_SIZE: 
+    if box.y < (ROWS)*CELL_SIZE: 
         box.y += CELL_SIZE
         
 #runs the game
@@ -35,7 +35,9 @@ if __name__ == '__main__':
     blue = Color(0x0000FF,1)
     black = Color(0x000000,1)
     
-    boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,black),black)
+    color = black
+    
+    boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,color),color)
 
     box = Sprite(boxAsset)
     
@@ -43,5 +45,6 @@ if __name__ == '__main__':
     App().listenKeyEvent('keydown','right arrow',moveRight)
     App().listenKeyEvent('keydown','left arrow',moveLeft)
     App().listenKeyEvent('keydown','up arrow',moveUp)
-    App().listenKeyEvent('keydown','down arrow',moveDown)    
+    App().listenKeyEvent('keydown','down arrow',moveDown) 
+    App().listenKeyEvent('keydown', 'd', drawingOnOff)
     App().run()
