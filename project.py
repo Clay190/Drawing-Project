@@ -11,21 +11,20 @@ CELL_SIZE = 20
 
 #getting the cursor to move
 def moveRight(event):
-    if box.x < (COLS)*CELL_SIZE:
-        box.x += CELL_SIZE
+    if data['numX'] < (COLS)*CELL_SIZE:
+        data['numX'] += CELL_SIZE
 
 def moveLeft(event):
-    if box.x > 0:
-        box.x -= CELL_SIZE
+    if data['numX'] > 0:
+        data['numX'] -= CELL_SIZE
 
 def moveUp(event):
-    if box.y > 0:
-        box.y -= CELL_SIZE
+    if data['numY'] > 0:
+        data['numY'] -= CELL_SIZE
 
 def moveDown(event):
-    if box.y < (ROWS)*CELL_SIZE: 
-        box.y += CELL_SIZE
-        ['numbox'] 
+    if data['numY'] < (ROWS)*CELL_SIZE: 
+        data['numY'] += CELL_SIZE
         
         
 def drawingOnOff(event):
