@@ -26,7 +26,6 @@ def moveDown(event):
     if data['numY'] < (ROWS)*CELL_SIZE: 
         data['numY'] += CELL_SIZE
         
-        
 def drawingOnOff(event):
     print('d')
         
