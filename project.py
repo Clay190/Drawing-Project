@@ -5,33 +5,35 @@
 from ggame import *
 
 #constants
-ROWS = 25
+ROWS = 26
 COLS = 50
 CELL_SIZE = 20
+
+
 
 #getting the cursor to move
 def moveRight(event):
     if data['numX'] < (COLS)*CELL_SIZE:
         data['numX'] += CELL_SIZE
-        Sprite(boxAsset, (data['numX'],data['numY']))
+        draw
 
 def moveLeft(event):
     if data['numX'] > 0:
         data['numX'] -= CELL_SIZE
-        Sprite(boxAsset, (data['numX'],data['numY']))
+        draw
 
 def moveUp(event):
     if data['numY'] > 0:
         data['numY'] -= CELL_SIZE
-        Sprite(boxAsset, (data['numX'],data['numY']))
+        draw
 
 def moveDown(event):
     if data['numY'] < (ROWS)*CELL_SIZE: 
         data['numY'] += CELL_SIZE
-        Sprite(boxAsset, (data['numX'],data['numY']))
+        draw
         
 def drawingOnOff(event):
-    print('d')
+    draw = Sprite(boxAsset, (data['numX'],data['numY']))
         
 #runs the game
 if __name__ == '__main__':
