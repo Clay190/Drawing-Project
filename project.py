@@ -24,17 +24,27 @@ def moveLeft(event):
         data['numX'] -= CELL_SIZE
         if data['onOff']%2==0:
             Sprite(boxAsset, (data['numX'],data['numY']))
+        else:
+            Sprite(whiteBoxAsset, ((data['numX']+CELL_SIZE),data['numY']))
+            Sprite(boxAsset, (data['numX'],data['numY']))
+
 
 def moveUp(event):
     if data['numY'] > 0:
         data['numY'] -= CELL_SIZE
         if data['onOff']%2==0:
             Sprite(boxAsset, (data['numX'],data['numY']))
+        else:
+            Sprite(whiteBoxAsset, (data['numX'],(data['numY']+CELL_SIZE))
+            Sprite(boxAsset, (data['numX'],data['numY']))
+
 
 def moveDown(event):
     if data['numY'] < (ROWS)*CELL_SIZE: 
         data['numY'] += CELL_SIZE
         if data['onOff']%2==0:
+            Sprite(boxAsset, (data['numX'],data['numY']))
+        Sprite(whiteBoxAsset, (data['numX'],(data['numY']+CELL_SIZE))
             Sprite(boxAsset, (data['numX'],data['numY']))
         
         
@@ -59,10 +69,11 @@ if __name__ == '__main__':
     green = Color(0x00FF00,1)
     blue = Color(0x0000FF,1)
     black = Color(0x000000,1)
+    white = Color(0xFFFFFF, 1)
     
     color = black
     
-    whiteBoxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,red),red)
+    whiteBoxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,white),white)
     boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,color),color)
 
     box = Sprite(boxAsset, (data['numX'],data['numY']))
