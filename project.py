@@ -9,36 +9,42 @@ ROWS = 26
 COLS = 50
 CELL_SIZE = 20
 
-
-
 #getting the cursor to move
 def moveRight(event):
     if data['numX'] < (COLS)*CELL_SIZE:
         data['numX'] += CELL_SIZE
-        
+        if data['onOff']%2==0:
+            Sprite(boxAsset, (data['numX'],data['numY']))
+        else:
+            Sprite(whiteBoxAsset, ((data['numX']-CELL_SIZE),data['numY']))
+            Sprite(boxAsset, (data['numX'],data['numY']))
 
 def moveLeft(event):
     if data['numX'] > 0:
         data['numX'] -= CELL_SIZE
-        
+        if data['onOff']%2==0:
+            Sprite(boxAsset, (data['numX'],data['numY']))
 
 def moveUp(event):
     if data['numY'] > 0:
         data['numY'] -= CELL_SIZE
-        
+        if data['onOff']%2==0:
+            Sprite(boxAsset, (data['numX'],data['numY']))
 
 def moveDown(event):
     if data['numY'] < (ROWS)*CELL_SIZE: 
         data['numY'] += CELL_SIZE
-        print(data['numY'])
+        if data['onOff']%2==0:
+            Sprite(boxAsset, (data['numX'],data['numY']))
+        
         
         
 def drawingOnOff(event):
     data['onOff'] += 1
     if data['onOff']%2==0:
-        print("true")
+        print("on")
     else:
-        print("WORKS")
+        print("off")
 
 #runs the game
 if __name__ == '__main__':
@@ -56,6 +62,7 @@ if __name__ == '__main__':
     
     color = black
     
+    whiteBoxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,red),red)
     boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,color),color)
 
     box = Sprite(boxAsset, (data['numX'],data['numY']))
