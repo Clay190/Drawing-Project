@@ -15,32 +15,38 @@ CELL_SIZE = 20
 def moveRight(event):
     if data['numX'] < (COLS)*CELL_SIZE:
         data['numX'] += CELL_SIZE
-        draw
+        
 
 def moveLeft(event):
     if data['numX'] > 0:
         data['numX'] -= CELL_SIZE
-        draw
+        
 
 def moveUp(event):
     if data['numY'] > 0:
         data['numY'] -= CELL_SIZE
-        draw
+        
 
 def moveDown(event):
     if data['numY'] < (ROWS)*CELL_SIZE: 
         data['numY'] += CELL_SIZE
-        draw
+        print(data['numY'])
+        
         
 def drawingOnOff(event):
-    draw = Sprite(boxAsset, (data['numX'],data['numY']))
-        
+    data['onOff'] += 1
+    if data['onOff']%2==0:
+        print("true")
+    else:
+        print("WORKS")
+
 #runs the game
 if __name__ == '__main__':
     
     data = {}
     data['numX'] = 0
     data['numY'] = 0
+    data['onOff'] = 0
     
     #colors
     red = Color(0xFF0000,1)
