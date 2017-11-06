@@ -35,7 +35,7 @@ def moveUp(event):
         if data['onOff']%2==0:
             Sprite(boxAsset, (data['numX'],data['numY']))
         else:
-            Sprite(whiteBoxAsset, (data['numX'],(data['numY']+CELL_SIZE))
+            Sprite(whiteBoxAsset, (data['numX'],(data['numY']+CELL_SIZE)))
             Sprite(boxAsset, (data['numX'],data['numY']))
 
 
@@ -44,7 +44,8 @@ def moveDown(event):
         data['numY'] += CELL_SIZE
         if data['onOff']%2==0:
             Sprite(boxAsset, (data['numX'],data['numY']))
-        Sprite(whiteBoxAsset, (data['numX'],(data['numY']+CELL_SIZE))
+        else:
+            Sprite(whiteBoxAsset, (data['numX'],(data['numY']-CELL_SIZE)))
             Sprite(boxAsset, (data['numX'],data['numY']))
         
         
