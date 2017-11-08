@@ -49,14 +49,22 @@ def moveDown(event):
             data['lastBox'].destroy()
             data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
         
-        
-        
 def drawingOnOff(event):
     data['onOff'] += 1
     if data['onOff']%2==0:
         print("on")
     else:
         print("off")
+        
+def changeColor(event):
+    if data['color'] == black:
+        data['color'] == blue
+    elif data['color'] == blue:
+        data['color'] == green
+    elif data['color'] == green:
+        data['color'] == red
+    else:
+        data['color'] == black
         
 
 #runs the game
@@ -75,9 +83,9 @@ if __name__ == '__main__':
     black = Color(0x000000,1)
     white = Color(0xFFFFFF, 1)
     
-    color = black
-
-    boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,color),color)
+    data['color'] = black
+    
+    boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
 
     box = Sprite(boxAsset, (data['numX'],data['numY']))
     
@@ -89,4 +97,5 @@ if __name__ == '__main__':
     App().listenKeyEvent('keydown','up arrow',moveUp)
     App().listenKeyEvent('keydown','down arrow',moveDown) 
     App().listenKeyEvent('keydown', 'd', drawingOnOff)
+    App().listenKeyEvent('keydown', 'e', changeColor)
     App().run()
