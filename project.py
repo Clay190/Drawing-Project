@@ -9,7 +9,8 @@ ROWS = 26
 COLS = 50
 CELL_SIZE = 20
 
-#getting the cursor to move
+#getting the cursor to move to the right
+#then checks whether the cursor should draw, or just sprite a box to the right and then 
 def moveRight(event):
     if data['numX'] < (COLS)*CELL_SIZE:
         data['numX'] += CELL_SIZE
@@ -19,7 +20,7 @@ def moveRight(event):
             data['lastBox'].destroy()
             data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
             
-
+#getting the cursor to move to the left
 def moveLeft(event):
     if data['numX'] > 0:
         data['numX'] -= CELL_SIZE
@@ -29,7 +30,7 @@ def moveLeft(event):
             data['lastBox'].destroy()
             data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
 
-
+#getting the cursor to move to up
 def moveUp(event):
     if data['numY'] > 0:
         data['numY'] -= CELL_SIZE
@@ -39,7 +40,7 @@ def moveUp(event):
             data['lastBox'].destroy()
             data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
 
-
+#getting the cursor to move to the down
 def moveDown(event):
     if data['numY'] < (ROWS)*CELL_SIZE: 
         data['numY'] += CELL_SIZE
@@ -56,16 +57,17 @@ def drawingOnOff(event):
     else:
         print("off")
         
-def changeColor(event):
-    if data['color'] == black:
-        data['color'] == blue
-    elif data['color'] == blue:
-        data['color'] == green
-    elif data['color'] == green:
-        data['color'] == red
-    else:
-        data['color'] == black
-        
+def changeColorBlack(event):
+    data['color'] = black        
+
+def changeColorRed(event):
+    data['color'] = red
+    
+def changeColorBlue(event):
+    data['color'] = blue
+    
+def changeColorGreen(event):
+    data['color'] = green
 
 #runs the game
 if __name__ == '__main__':
@@ -75,7 +77,6 @@ if __name__ == '__main__':
     data['numY'] = 0
     data['onOff'] = 0
     
-    
     #colors
     red = Color(0xFF0000,1)
     green = Color(0x00FF00,1)
@@ -83,7 +84,7 @@ if __name__ == '__main__':
     black = Color(0x000000,1)
     white = Color(0xFFFFFF, 1)
     
-    data['color'] = black
+    data['color'] = red
     
     boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
 
@@ -97,5 +98,9 @@ if __name__ == '__main__':
     App().listenKeyEvent('keydown','up arrow',moveUp)
     App().listenKeyEvent('keydown','down arrow',moveDown) 
     App().listenKeyEvent('keydown', 'd', drawingOnOff)
-    App().listenKeyEvent('keydown', 'e', changeColor)
+    App().listenKeyEvent('keydown', 'v', changeColorBlack)
+    App().listenKeyEvent('keydown', 'm', changeColorGreen)
+    App().listenKeyEvent('keydown', 'n', changeColorBlue)
+    App().listenKeyEvent('keydown', 'b', changeColorRed)
+    
     App().run()
