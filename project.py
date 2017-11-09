@@ -72,6 +72,12 @@ def changeColorBlue(event):
     
 def changeColorGreen(event):
     data['color'] = green
+    
+def changeColorYellow(event):
+    data['color'] = yellow
+    
+def changeColorErase(event):
+    data['color'] = white
 
 #runs the game
 if __name__ == '__main__':
@@ -86,6 +92,7 @@ if __name__ == '__main__':
     green = Color(0x00FF00,1)
     blue = Color(0x0000FF,1)
     black = Color(0x000000,1)
+    yellow = Color(0xFFFF00,1)
     white = Color(0xFFFFFF, 1)
     
     data['color'] = black
@@ -106,5 +113,7 @@ if __name__ == '__main__':
     App().listenKeyEvent('keydown', 'w', changeColorBlue)
     App().listenKeyEvent('keydown', 'e', changeColorGreen)
     App().listenKeyEvent('keydown', 'r', changeColorRed)
+    App().listenKeyEvent('keydown', 't', changeColorYellow)
+    App().listenKeyEvent('keydown', 'y', changeColorErase)
     
     App().run()
