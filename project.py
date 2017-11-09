@@ -88,7 +88,7 @@ if __name__ == '__main__':
     black = Color(0x000000,1)
     white = Color(0xFFFFFF, 1)
     
-    data['color'] = red
+    data['color'] = black
     
     boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
 
@@ -102,9 +102,9 @@ if __name__ == '__main__':
     App().listenKeyEvent('keydown','up arrow',moveUp)
     App().listenKeyEvent('keydown','down arrow',moveDown) 
     App().listenKeyEvent('keydown', 'd', drawingOnOff)
-    App().listenKeyEvent('keydown', 'v', changeColorBlack)
-    App().listenKeyEvent('keydown', 'm', changeColorGreen)
-    App().listenKeyEvent('keydown', 'n', changeColorBlue)
-    App().listenKeyEvent('keydown', 'b', changeColorRed)
+    App().listenKeyEvent('keydown', 'q', changeColorBlack)
+    App().listenKeyEvent('keydown', 'w', changeColorBlue)
+    App().listenKeyEvent('keydown', 'e', changeColorGreen)
+    App().listenKeyEvent('keydown', 'r', changeColorRed)
     
     App().run()
