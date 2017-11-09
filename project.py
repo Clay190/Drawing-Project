@@ -14,6 +14,7 @@ CELL_SIZE = 20
 def moveRight(event):
     if data['numX'] < (COLS)*CELL_SIZE:
         data['numX'] += CELL_SIZE
+        boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
         if data['onOff']%2==0:
             data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
         else:
@@ -24,6 +25,7 @@ def moveRight(event):
 def moveLeft(event):
     if data['numX'] > 0:
         data['numX'] -= CELL_SIZE
+        boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
         if data['onOff']%2==0:
             data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
         else:
@@ -34,6 +36,7 @@ def moveLeft(event):
 def moveUp(event):
     if data['numY'] > 0:
         data['numY'] -= CELL_SIZE
+        boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
         if data['onOff']%2==0:
             data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
         else:
@@ -44,6 +47,7 @@ def moveUp(event):
 def moveDown(event):
     if data['numY'] < (ROWS)*CELL_SIZE: 
         data['numY'] += CELL_SIZE
+        boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
         if data['onOff']%2==0:
             data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
         else:
