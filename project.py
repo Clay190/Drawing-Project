@@ -18,7 +18,9 @@ BOARDCIRCLE = EllipseAsset(RADIUS,RADIUS,LineStyle(LINESIZE,BLACK),BOARDCOLOR)
 def buildBoard():
     for i in range(0,8):
         data['board'].append(['']*8)
+    #Main center point
     data['board'][3][3] = 1
+    #Tests East/West
     data['board'][4][3] = 2
     data['board'][5][3] = 2
     data['board'][6][3] = 2
@@ -26,6 +28,7 @@ def buildBoard():
     data['board'][7][3] = 1
     data['board'][0][3] = 1
     data['board'][3][0] = 1
+    #Tests North/South
     data['board'][3][7] = 1
     data['board'][3][6] = 2
     data['board'][3][5] = 2
@@ -33,6 +36,21 @@ def buildBoard():
     data['board'][3][2] = 2
     data['board'][3][1] = 2
     data['board'][1][3] = 2
+    #Tests SouthEast/NorthWest
+    data['board'][0][0] = 1
+    data['board'][1][1] = 2
+    data['board'][2][2] = 2
+    data['board'][4][4] = 2
+    data['board'][5][5] = 2
+    data['board'][6][6] = 2
+    data['board'][7][7] = 1
+    #Tests SouthWest/NorthEast
+    data['board'][0][6] = 1
+    data['board'][6][0] = 1
+    data['board'][2][4] = 2
+    data['board'][1][5] = 2
+    data['board'][4][2] = 2
+    data['board'][5][1] = 2
     return data['board']
 
 def boardFull():
@@ -170,7 +188,7 @@ if __name__ == '__main__':
     buildBoard()
     print(data['board'])
     flipPieces(data['row'],data['col'])
-    flipEast(data['row'],data['col'])
+    #flipEast(data['row'],data['col'])
     print(data['board'])
     redrawAll()
     boardFull()
