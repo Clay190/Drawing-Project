@@ -138,43 +138,54 @@ def flipWest(x,y):
         data['board'][x-i][y] = 1
         for t in range(m+1):
             data['board'][x-t][y] = 1
-'''
+
 def flipNorthEast(x,y):
     i=1
+    m=0
     while data['board'][x+i][y-i] == 2:
-        print(i)
         i+=1
+        m+=1
     if data['board'][x+i][y-i] != '':
         data['board'][x+i][y-i] = 1
-        redrawAll()
+        for t in range(m+1):
+            data['board'][x+t][y-t] = 1
+    redrawAll()
 
 def flipNorthWest(x,y):
     i=1
+    m=0
     while data['board'][x-i][y-i] == 2:
-        print(i)
         i+=1
+        m+=1
     if data['board'][x-i][y-i] != '':
         data['board'][x-i][y-i] = 1
-        redrawAll()
+        for t in range(m+1):
+            data['board'][x-t][y-t] = 1
+    redrawAll()
     
 def flipSouthEast(x,y):
     i=1
+    m=0
     while data['board'][x+i][y+i] == 2:
-        print(i)
         i+=1
+        m+=1
     if data['board'][x+i][y+i] != '':
         data['board'][x+i][y+i] = 1
-        redrawAll()
-
+        for t in range(m+1):
+            data['board'][x+t][y+t] = 1
+    
 def flipSouthWest(x,y):
     i=1
-    while data['board'][x-i][y+i] == 2:
-        print(i)
+    m=0
+    while data['board'][x+i][y-i] == 2:
         i+=1
-    if data['board'][x-i][y+i] != '':
-        data['board'][x-i][y+i] = 1
+        m+=1
+    if data['board'][x+i][y-i] != '':
+        data['board'][x+i][y-i] = 1
+        for t in range(m+1):
+            data['board'][x+t][y-t] = 1
     redrawAll()
-'''
+
 def flipPieces(x,y):
     print('Reminder: Finish do flipPieces function')
     
@@ -188,7 +199,7 @@ if __name__ == '__main__':
     buildBoard()
     print(data['board'])
     flipPieces(data['row'],data['col'])
-    #flipEast(data['row'],data['col'])
+    flipNorthEast(data['row'],data['col'])
     print(data['board'])
     redrawAll()
     boardFull()
