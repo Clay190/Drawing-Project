@@ -199,7 +199,7 @@ if __name__ == '__main__':
     buildBoard()
     print(data['board'])
     flipPieces(data['row'],data['col'])
-    flipNorthEast(data['row'],data['col'])
+    flipSouthEast(data['row'],data['col'])
     print(data['board'])
     redrawAll()
     boardFull()
