@@ -176,7 +176,7 @@ def flipSouthWest(x,y):
     redrawAll()
 '''
 def flipPieces(x,y):
-    print('Do flipPieces function')
+    print('Reminder: Finish do flipPieces function')
     
 if __name__ == '__main__':
     
