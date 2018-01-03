@@ -1,132 +1,178 @@
 #Clay Kynor
-#11/1/17
-#drawingProgram.py
+#12/14/17
+#FinalProject.py - OTHELLO
 
 from ggame import *
 
-#constants
-ROWS = 26
-COLS = 50
-CELL_SIZE = 20
+RADIUS = 30
+LINESIZE = 1.4
+P1COLOR = Color(0xFFFFFF,1)
+P2COLOR = Color(0x000000,1)
+BOARDCOLOR = Color(0x999999,0.5)
+BLACK = Color(0x000000,1)
 
-#getting the coordinates of data numY to move one cell size to the right
-#then checks whether the cursor should draw, or just sprite a box to the right of the current one, using the new X coordinates, and then remove the box to that new one's left (the old box)
-def moveRight(event):
-    if data['numX'] < (COLS)*CELL_SIZE:
-        data['numX'] += CELL_SIZE
-        boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
-        if data['onOff']%2==0:
-            data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
-        else:
-            data['lastBox'].destroy()
-            data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
-            
-#getting the coordinates of data numX to move on Cell size to the left
-#checks whether the cursor is in drawing mode and then decides whether or not to destroy the last box before spriting the new both in a location cell to the left of the other box by using the new X coordinates
-def moveLeft(event):
-    if data['numX'] > 0:
-        data['numX'] -= CELL_SIZE
-        boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
-        if data['onOff']%2==0:
-            data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
-        else:
-            data['lastBox'].destroy()
-            data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
+P1CIRCLE = EllipseAsset(RADIUS,RADIUS,LineStyle(LINESIZE,BLACK),P1COLOR)
+P2CIRCLE = EllipseAsset(RADIUS,RADIUS,LineStyle(LINESIZE,BLACK),P2COLOR)
+BOARDCIRCLE = EllipseAsset(RADIUS,RADIUS,LineStyle(LINESIZE,BLACK),BOARDCOLOR)
 
-#getting coordinates of data numY to move one cell size up
-#checks whether or not to destroy the last box it makes by checking if drawing is on or off, before placing a new box one cell above the old box by using the new Y coordinates
-def moveUp(event):
-    if data['numY'] > 0:
-        data['numY'] -= CELL_SIZE
-        boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
-        if data['onOff']%2==0:
-            data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
-        else:
-            data['lastBox'].destroy()
-            data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
+def buildBoard():
+    for i in range(0,8):
+        data['board'].append(['']*8)
+    data['board'][3][3] = 1
+    data['board'][4][3] = 2
+    data['board'][5][3] = 2
+    data['board'][6][3] = 2
+    data['board'][2][3] = 2
+    data['board'][7][3] = 1
+    data['board'][0][3] = 1
+    data['board'][3][0] = 1
+    data['board'][3][7] = 1
+    data['board'][3][6] = 2
+    data['board'][3][5] = 2
+    data['board'][3][4] = 2
+    data['board'][3][2] = 2
+    data['board'][3][1] = 2
+    data['board'][1][3] = 2
+    return data['board']
 
-#getting the coordinates of data numY to move one cell size down
-#checks whether drawing is on or off and if drawing is off, then it removes the last box placed and then no matter what drawing is, it sprites a new box with the new Y coordinates
-def moveDown(event):
-    if data['numY'] < (ROWS)*CELL_SIZE: 
-        data['numY'] += CELL_SIZE
-        boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
-        if data['onOff']%2==0:
-            data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
-        else:
-            data['lastBox'].destroy()
-            data['lastBox'] = Sprite(boxAsset, (data['numX'],data['numY']))
-        
-#a way of telling whether the user means to draw on the screen, or just move the cursor around
-#it does this by tallying the number of times the user hits the 'd' key and then adding 1 to the variable data['onOff'] then it tells whether or not the user wants to draw or not by seeing if data['onOff'] is even or odd, and prints whether drawing is 'on' or drawing is 'off'
-#after it is determind whether drawing is on (an even number) or off (an odd number), the moving of the cursor then takes the information of what the variable data['onOff'] is and uses that to determind whether to move the previous box placed
-def drawingOnOff(event):
-    data['onOff'] += 1
-    if data['onOff']%2==0:
-        print("on")
+def boardFull():
+    for i in range(0,8):
+        if '' in data['board'][i]:
+            print('board is not full')
+            return False
     else:
-        print("off")
-        
-#Changes cursor (data['color']) to black
-def changeColorBlack(event):
-    data['color'] = black        
-
-#Changes cursor (data['color']) to red
-def changeColorRed(event):
-    data['color'] = red
+        print('board is full')
+        return True
+ 
+def winner():
+    p1Points = 0
+    p2Points = 0
+    for row in range(0,8):
+        for col in range(0,8):
+            if data['board'][row][col] == 1:
+                p1Points += 1
+            elif data['board'][row][col] == 2:
+                p2Points += 1
+    print("Player 1 has", p1Points)
+    print("Player 2 has", p2Points)
+    if p1Points>p2Points:
+        print('Player 1 wins!')
+    elif p1Points<p2Points:    
+        print('Player 2 wins!')
+    else:
+        print("This game is a draw!")
     
-#Changes cursor (data['color']) to blue
-def changeColorBlue(event):
-    data['color'] = blue
-    
-#Changes cursor (data['color']) to green
-def changeColorGreen(event):
-    data['color'] = green
+def redrawAll():
+    for item in App().spritelist[:]:
+        item.destroy()
+    for row in range(0,8):
+        for col in range(0,8):
+            if data['board'][row][col] == '':
+                Sprite(BOARDCIRCLE,(RADIUS+(row*(RADIUS*2)),RADIUS+(col*RADIUS*2)))
+            elif data['board'][row][col] == 1:
+                Sprite(P1CIRCLE,((row*RADIUS*2)+RADIUS,RADIUS+(col*RADIUS*2)))
+            else:
+                Sprite(P2CIRCLE,((row*RADIUS*2)+RADIUS,RADIUS+(col*RADIUS*2)))
+                
+def flipNorth(x,y):
+    i=1
+    m=0
+    while data['board'][x][y-i] == 2:
+        i+=1
+        m+=1
+    if data['board'][x][y-i] != '':
+        data['board'][x][y-i] = 1
+        for t in range(m+1):
+            data['board'][x][y-t] = 1
+    redrawAll()
 
-#Changes cursor (data['color']) to yellow    
-def changeColorYellow(event):
-    data['color'] = yellow
-    
-#Changes cursor (data['color']) to white (in case the user would like to erase thier previous work)
-def changeColorErase(event):
-    data['color'] = white
+def flipSouth(x,y):
+    i=1
+    m=0
+    while data['board'][x][y+i] == 2:
+        i+=1
+        m+=1
+    if data['board'][x][y+i] != '':
+        data['board'][x][y+i] = 1
+        for t in range(m+1):
+            data['board'][x][y+t] = 1
+    redrawAll()
 
-#runs the game section of the program
+def flipEast(x,y):
+    i=1
+    m=0
+    while data['board'][x+i][y] == 2:
+        i+=1
+        m+=1
+    if data['board'][x+i][y] != '':
+        data['board'][x+i][y] = 1
+        for t in range(m+1):
+            data['board'][x+t][y] = 1
+    redrawAll()
+
+def flipWest(x,y):
+    i=1
+    m=0
+    while data['board'][x-i][y] == 2:
+        i+=1
+        m+=1
+    if data['board'][x-i][y] != '':
+        data['board'][x-i][y] = 1
+        for t in range(m+1):
+            data['board'][x-t][y] = 1
+'''
+def flipNorthEast(x,y):
+    i=1
+    while data['board'][x+i][y-i] == 2:
+        print(i)
+        i+=1
+    if data['board'][x+i][y-i] != '':
+        data['board'][x+i][y-i] = 1
+        redrawAll()
+
+def flipNorthWest(x,y):
+    i=1
+    while data['board'][x-i][y-i] == 2:
+        print(i)
+        i+=1
+    if data['board'][x-i][y-i] != '':
+        data['board'][x-i][y-i] = 1
+        redrawAll()
+    
+def flipSouthEast(x,y):
+    i=1
+    while data['board'][x+i][y+i] == 2:
+        print(i)
+        i+=1
+    if data['board'][x+i][y+i] != '':
+        data['board'][x+i][y+i] = 1
+        redrawAll()
+
+def flipSouthWest(x,y):
+    i=1
+    while data['board'][x-i][y+i] == 2:
+        print(i)
+        i+=1
+    if data['board'][x-i][y+i] != '':
+        data['board'][x-i][y+i] = 1
+    redrawAll()
+'''
+def flipPieces(x,y):
+    print('Do flipPieces function')
+    
 if __name__ == '__main__':
     
     data = {}
-    data['numX'] = 0
-    data['numY'] = 0
-    data['onOff'] = 0
+    data['board'] = []
+    data['row'] = 3
+    data['col'] = 3
     
-#color codes that we use for changing the color (lines 70-92)
-    red = Color(0xFF0000,1)
-    green = Color(0x00FF00,1)
-    blue = Color(0x0000FF,1)
-    black = Color(0x000000,1)
-    yellow = Color(0xFFFF00,1)
-    white = Color(0xFFFFFF, 1)
-    
-#sets a starting color for the cursor
-    data['color'] = black
-    
-#tells what the cursor is going to look like, and what variables it is going to use apperance wise (color, size, shape)
-    boxAsset = RectangleAsset(CELL_SIZE,CELL_SIZE,LineStyle(1,data['color']),data['color'])
-
-#setting a starting box to appear on screen before commands are pressed
-    box = Sprite(boxAsset, (data['numX'],data['numY']))
-    
-#Running the actual program and listing for the press of a key in order to change something according to earlier code
-    App().listenKeyEvent('keydown','right arrow',moveRight)
-    App().listenKeyEvent('keydown','left arrow',moveLeft)
-    App().listenKeyEvent('keydown','up arrow',moveUp)
-    App().listenKeyEvent('keydown','down arrow',moveDown) 
-    App().listenKeyEvent('keydown', 'd', drawingOnOff)
-    App().listenKeyEvent('keydown', 'q', changeColorBlack)
-    App().listenKeyEvent('keydown', 'w', changeColorBlue)
-    App().listenKeyEvent('keydown', 'e', changeColorGreen)
-    App().listenKeyEvent('keydown', 'r', changeColorRed)
-    App().listenKeyEvent('keydown', 't', changeColorYellow)
-    App().listenKeyEvent('keydown', 'y', changeColorErase)
-    
+    buildBoard()
+    print(data['board'])
+    flipPieces(data['row'],data['col'])
+    flipEast(data['row'],data['col'])
+    print(data['board'])
+    redrawAll()
+    boardFull()
+    winner()
     App().run()
