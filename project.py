@@ -267,37 +267,37 @@ def mouseClick(event):
         print('6,4')
     elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*8)<event.y<(RADIUS*10):
         print('7,4')
-    elif 0<event.x<(RADIUS*2) and (RADIUS*10)<event.y(RADIUS*12):
+    elif 0<event.x<(RADIUS*2) and (RADIUS*10)<event.y<(RADIUS*12):
         print("0,5")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*10)<event.y(RADIUS*12):
+    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*10)<event.y<(RADIUS*12):
         print('1,5')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*10)<event.y(RADIUS*12):
+    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*10)<event.y<(RADIUS*12):
         print('2,5')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*10)<event.y(RADIUS*12):
+    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*10)<event.y<(RADIUS*12):
         print('3,5')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*10)<event.y(RADIUS*12):
+    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*10)<event.y<(RADIUS*12):
         print("4,5")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*10)<event.y(RADIUS*12):
+    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*10)<event.y<(RADIUS*12):
         print('5,5')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*10)<event.y(RADIUS*12):
+    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*10)<event.y<(RADIUS*12):
         print('6,5')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*10)<event.y(RADIUS*12):
+    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*10)<event.y<(RADIUS*12):
         print('7,5')
-    elif 0<event.x<(RADIUS*2) and (RADIUS*12)<event.y(RADIUS*14):
+    elif 0<event.x<(RADIUS*2) and (RADIUS*12)<event.y<(RADIUS*14):
         print("0,6")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*12)<event.y(RADIUS*14):
+    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*12)<event.y<(RADIUS*14):
         print('1,6')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*12)<event.y(RADIUS*14):
+    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*12)<event.y<(RADIUS*14):
         print('2,6')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*12)<event.y(RADIUS*14):
+    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*12)<event.y<(RADIUS*14):
         print('3,6')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*12)<event.y(RADIUS*14):
+    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*12)<event.y<(RADIUS*14):
         print("4,6")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*12)<event.y(RADIUS*14):
+    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*12)<event.y<(RADIUS*14):
         print('5,6')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*12)<event.y(RADIUS*14):
+    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*12)<event.y<(RADIUS*14):
         print('6,6')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*12)<event.y(RADIUS*14):
+    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*12)<event.y<(RADIUS*14):
         print('7,6')
 
 def flipPieces(x,y):
