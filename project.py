@@ -99,47 +99,83 @@ def redrawAll():
 def flipNorth(x,y):
     i=1
     m=0
-    while data['board'][x][y-i] == 2:
-        i+=1
-        m+=1
-    if data['board'][x][y-i] != '':
-        data['board'][x][y-i] = 1
-        for t in range(m+1):
-            data['board'][x][y-t] = 1
+    if data['turn']%2 == 0:
+        while data['board'][x][y-i] == 2:
+            i+=1
+            m+=1
+        if data['board'][x][y-i] != '':
+            data['board'][x][y-i] = 1
+            for t in range(m+1):
+                data['board'][x][y-t] = 1
+    else:
+        while data['board'][x][y-i] == 1:
+            i+=1
+            m+=1
+        if data['board'][x][y-i] != '':
+            data['board'][x][y-i] = 2
+            for t in range(m+1):
+                data['board'][x][y-t] = 2
     redrawAll()
 
 def flipSouth(x,y):
     i=1
     m=0
-    while data['board'][x][y+i] == 2:
-        i+=1
-        m+=1
-    if data['board'][x][y+i] != '':
-        data['board'][x][y+i] = 1
-        for t in range(m+1):
-            data['board'][x][y+t] = 1
+    if data['turn']%2 == 0:
+        while data['board'][x][y+i] == 2:
+            i+=1
+            m+=1
+        if data['board'][x][y+i] != '':
+            data['board'][x][y+i] = 1
+            for t in range(m+1):
+                data['board'][x][y+t] = 1
+    else:
+        while data['board'][x][y+i] == 1:
+            i+=1
+            m+=1
+        if data['board'][x][y+i] != '':
+            data['board'][x][y+i] = 2
+            for t in range(m+1):
+                data['board'][x][y+t] = 2
 
 def flipEast(x,y):
     i=1
     m=0
-    while data['board'][x+i][y] == 2:
-        i+=1
-        m+=1
-    if data['board'][x+i][y] != '':
-        data['board'][x+i][y] = 1
-        for t in range(m+1):
-            data['board'][x+t][y] = 1
+    if data['turn']%2 == 0:    
+        while data['board'][x+i][y] == 2:
+            i+=1
+            m+=1
+        if data['board'][x+i][y] != '':
+            data['board'][x+i][y] = 1
+            for t in range(m+1):
+                data['board'][x+t][y] = 1
+    else:
+        while data['board'][x+i][y] == 1:
+            i+=1
+            m+=1
+        if data['board'][x+i][y] != '':
+            data['board'][x+i][y] = 2
+            for t in range(m+1):
+                data['board'][x+t][y] = 2
 
 def flipWest(x,y):
     i=1
     m=0
-    while data['board'][x-i][y] == 2:
-        i+=1
-        m+=1
-    if data['board'][x-i][y] != '':
-        data['board'][x-i][y] = 1
-        for t in range(m+1):
-            data['board'][x-t][y] = 1
+    if data['turn']%2 == 0:    
+        while data['board'][x-i][y] == 2:
+            i+=1
+            m+=1
+        if data['board'][x-i][y] != '':
+            data['board'][x-i][y] = 1
+            for t in range(m+1):
+                data['board'][x-t][y] = 1
+    else:
+        while data['board'][x-i][y] == 1:
+            i+=1
+            m+=1
+        if data['board'][x-i][y] != '':
+            data['board'][x-i][y] = 2
+            for t in range(m+1):
+                data['board'][x-t][y] = 2
 
 def flipNorthEast(x,y):
     i=1
@@ -152,6 +188,14 @@ def flipNorthEast(x,y):
             data['board'][x+i][y-i] = 1
             for t in range(m+1):
                 data['board'][x+t][y-t] = 1
+    else:
+        while data['board'][x+i][y-i] == 1:
+            i+=1
+            m+=1
+        if data['board'][x+i][y-i] != '':
+            data['board'][x+i][y-i] = 2
+            for t in range(m+1):
+                data['board'][x+t][y-t] = 2
 
 
 def flipNorthWest(x,y):
