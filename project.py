@@ -185,9 +185,43 @@ def flipSouthWest(x,y):
         for t in range(m+1):
             data['board'][x+t][y-t] = 1
     redrawAll()
+    
+def mouseClick(event):
+    if event.x<(RADIUS*2) and event.y<(RADIUS*2):
+        print("0,0")
+    elif (RADIUS*2)<event.x<(RADIUS*4) and event.y<(RADIUS*2):
+        print('1,0')
+    elif (RADIUS*4)<event.x<(RADIUS*6) and event.y<(RADIUS*2):
+        print('2,0')
+    elif (RADIUS*6)<event.x<(RADIUS*8) and event.y<(RADIUS*2):
+        print('3,0')
+    elif (RADIUS*8)<event.x<(RADIUS*10) and event.y<(RADIUS*2):
+        print("4,0")
+    elif (RADIUS*10)<event.x<(RADIUS*12) and event.y<(RADIUS*2):
+        print('5,0')
+    elif (RADIUS*12)<event.x<(RADIUS*14) and event.y<(RADIUS*2):
+        print('6,0')
+    elif (RADIUS*14)<event.x<(RADIUS*16) and event.y<(RADIUS*2):
+        print('7,0')
+    elif event.x<(RADIUS*2) and (RADIUS*2)<event.y<(RADIUS*4):
+        print("0,1")
+    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*2)<event.y<(RADIUS*4):
+        print('1,1')
+    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*2)<event.y<(RADIUS*4):
+        print('2,1')
+    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*2)<event.y<(RADIUS*4):
+        print('3,1')
+    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*2)<event.y<(RADIUS*4):
+        print("4,1")
+    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*2)<event.y<(RADIUS*4):
+        print('5,1')
+    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*2)<event.y<(RADIUS*4):
+        print('6,1')
+    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*2)<event.y<(RADIUS*4):
+        print('7,1')
 
 def flipPieces(x,y):
-    print('Reminder: Finish do flipPieces function')
+    flipNorth(x,y)
     
 if __name__ == '__main__':
     
@@ -195,6 +229,7 @@ if __name__ == '__main__':
     data['board'] = []
     data['row'] = 3
     data['col'] = 3
+    data['turn'] = 1
     
     buildBoard()
     print(data['board'])
@@ -204,4 +239,5 @@ if __name__ == '__main__':
     redrawAll()
     boardFull()
     winner()
+    App().listenMouseEvent("click", mouseClick)
     App().run()
