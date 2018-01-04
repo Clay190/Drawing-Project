@@ -20,6 +20,9 @@ def buildBoard():
         data['board'].append(['']*8)
     #Main center point
     data['board'][3][3] = 1
+    data['board'][4][3] = 2
+    data['board'][3][4] = 2
+    data['board'][4][4] = 1
     #Tests East/West
     '''data['board'][4][3] = 2
     data['board'][5][3] = 2
@@ -450,11 +453,19 @@ def mouseClick(event):
         elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*14)<event.y<(RADIUS*16):
             data['board'][col][row] = 2
     data['turn']+=1
+    flipPieces(data['row'],data['col'])
     redrawAll()
     
 
 def flipPieces(x,y):
     flipNorth(x,y)
+    flipSouth(x,y)
+    flipEast(x,y)
+    flipWest(x,y)
+    flipNorthEast(x,y)
+    flipSouthEast(x,y)
+    flipNorthWest(x,y)
+    flipSouthWest(x,y)
     
 if __name__ == '__main__':
     
