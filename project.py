@@ -60,7 +60,6 @@ def buildBoard():
 def boardFull():
     for i in range(0,8):
         if '' in data['board'][i]:
-            print('board is not full')
             return False
     else:
         print('board is full')
@@ -267,7 +266,6 @@ def mouseClick(event):
         data['board'][row][col] = 2
     else:
         data['board'][row][col] = 1
-    print(row,col)
     data['turn']+=1
     flipPieces(row,col)
     
