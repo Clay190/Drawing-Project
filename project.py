@@ -21,7 +21,7 @@ def buildBoard():
     #Main center point
     data['board'][3][3] = 1
     #Tests East/West
-    data['board'][4][3] = 2
+    '''data['board'][4][3] = 2
     data['board'][5][3] = 2
     data['board'][6][3] = 2
     data['board'][2][3] = 2
@@ -51,6 +51,7 @@ def buildBoard():
     data['board'][1][5] = 2
     data['board'][4][2] = 2
     data['board'][5][1] = 2
+    '''
     return data['board']
 
 def boardFull():
@@ -187,134 +188,271 @@ def flipSouthWest(x,y):
     redrawAll()
     
 def mouseClick(event):
-    if 0<event.x<(RADIUS*2) and 0<event.y<(RADIUS*2):
-        print("0,0")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and event.y<(RADIUS*2):
-        print('1,0')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and event.y<(RADIUS*2):
-        print('2,0')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and event.y<(RADIUS*2):
-        print('3,0')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and event.y<(RADIUS*2):
-        print("4,0")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and event.y<(RADIUS*2):
-        print('5,0')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and event.y<(RADIUS*2):
-        print('6,0')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and event.y<(RADIUS*2):
-        print('7,0')
-    elif 0<event.x<(RADIUS*2) and (RADIUS*2)<event.y<(RADIUS*4):
-        print("0,1")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*2)<event.y<(RADIUS*4):
-        print('1,1')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*2)<event.y<(RADIUS*4):
-        print('2,1')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*2)<event.y<(RADIUS*4):
-        print('3,1')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*2)<event.y<(RADIUS*4):
-        print("4,1")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*2)<event.y<(RADIUS*4):
-        print('5,1')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*2)<event.y<(RADIUS*4):
-        print('6,1')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*2)<event.y<(RADIUS*4):
-        print('7,1')
-    elif 0<event.x<(RADIUS*2) and (RADIUS*4)<event.y<(RADIUS*6):
-        print("0,2")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*4)<event.y<(RADIUS*6):
-        print('1,2')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*4)<event.y<(RADIUS*6):
-        print('2,2')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*4)<event.y<(RADIUS*6):
-        print('3,2')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*4)<event.y<(RADIUS*6):
-        print("4,2")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*4)<event.y<(RADIUS*6):
-        print('5,2')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*4)<event.y<(RADIUS*6):
-        print('6,2')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*4)<event.y<(RADIUS*6):
-        print('7,2')
-    elif 0<event.x<(RADIUS*2) and (RADIUS*6)<event.y<(RADIUS*8):
-        print("0,3")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*6)<event.y<(RADIUS*8):
-        print('1,3')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*6)<event.y<(RADIUS*8):
-        print('2,3')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*6)<event.y<(RADIUS*8):
-        print('3,3')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*6)<event.y<(RADIUS*8):
-        print("4,3")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*6)<event.y<(RADIUS*8):
-        print('5,3')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*6)<event.y<(RADIUS*8):
-        print('6,3')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*6)<event.y<(RADIUS*8):
-        print('7,3')
-    elif 0<event.x<(RADIUS*2) and (RADIUS*8)<event.y<(RADIUS*10):
-        print("0,4")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*8)<event.y<(RADIUS*10):
-        print('1,4')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*8)<event.y<(RADIUS*10):
-        print('2,4')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*8)<event.y<(RADIUS*10):
-        print('3,4')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*8)<event.y<(RADIUS*10):
-        print("4,4")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*8)<event.y<(RADIUS*10):
-        print('5,4')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*8)<event.y<(RADIUS*10):
-        print('6,4')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*8)<event.y<(RADIUS*10):
-        print('7,4')
-    elif 0<event.x<(RADIUS*2) and (RADIUS*10)<event.y<(RADIUS*12):
-        print("0,5")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*10)<event.y<(RADIUS*12):
-        print('1,5')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*10)<event.y<(RADIUS*12):
-        print('2,5')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*10)<event.y<(RADIUS*12):
-        print('3,5')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*10)<event.y<(RADIUS*12):
-        print("4,5")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*10)<event.y<(RADIUS*12):
-        print('5,5')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*10)<event.y<(RADIUS*12):
-        print('6,5')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*10)<event.y<(RADIUS*12):
-        print('7,5')
-    elif 0<event.x<(RADIUS*2) and (RADIUS*12)<event.y<(RADIUS*14):
-        print("0,6")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*12)<event.y<(RADIUS*14):
-        print('1,6')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*12)<event.y<(RADIUS*14):
-        print('2,6')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*12)<event.y<(RADIUS*14):
-        print('3,6')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*12)<event.y<(RADIUS*14):
-        print("4,6")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*12)<event.y<(RADIUS*14):
-        print('5,6')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*12)<event.y<(RADIUS*14):
-        print('6,6')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*12)<event.y<(RADIUS*14):
-        print('7,6')
-    elif 0<event.x<(RADIUS*2) and (RADIUS*14)<event.y<(RADIUS*16):
-        print("0,7")
-    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*14)<event.y<(RADIUS*16):
-        print('1,7')
-    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*14)<event.y<(RADIUS*16):
-        print('2,7')
-    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*14)<event.y<(RADIUS*16):
-        print('3,7')
-    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*14)<event.y<(RADIUS*16):
-        print("4,7")
-    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*14)<event.y<(RADIUS*16):
-        print('5,7')
-    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*14)<event.y<(RADIUS*16):
-        print('6,7')
-    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*14)<event.y<(RADIUS*16):
-        print('7,7')
+    row = event.y/(2*RADIUS)
+    col = event.x/(2*RADIUS)
+    #print(row,col)
+    if data['turn']%2 == 0:
+        if 0<event.x<(RADIUS*2) and 0<event.y<(RADIUS*2):
+            data['board'][col][row] = 1
+        elif (RADIUS*2)<event.x<(RADIUS*4) and event.y<(RADIUS*2):
+            data['board'][col][row] = 1
+        elif (RADIUS*4)<event.x<(RADIUS*6) and event.y<(RADIUS*2):
+            data['board'][col][row] = 1
+        elif (RADIUS*6)<event.x<(RADIUS*8) and event.y<(RADIUS*2):
+            data['board'][col][row] = 1
+        elif (RADIUS*8)<event.x<(RADIUS*10) and event.y<(RADIUS*2):
+            data['board'][col][row] = 1
+        elif (RADIUS*10)<event.x<(RADIUS*12) and event.y<(RADIUS*2):
+            data['board'][col][row] = 1
+        elif (RADIUS*12)<event.x<(RADIUS*14) and event.y<(RADIUS*2):
+            data['board'][col][row] = 1
+        elif (RADIUS*14)<event.x<(RADIUS*16) and event.y<(RADIUS*2):
+            data['board'][col][row] = 1
+        elif 0<event.x<(RADIUS*2) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 1
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 1
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 1
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 1
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 1
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 1
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 1
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 1
+        elif 0<event.x<(RADIUS*2) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 1
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 1
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 1
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 1
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 1
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 1
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 1
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 1
+        elif 0<event.x<(RADIUS*2) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 1
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 1
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 1
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 1
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 1
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 1
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 1
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 1
+        elif 0<event.x<(RADIUS*2) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 1
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 1
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 1
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 1
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 1
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 1
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 1
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 1
+        elif 0<event.x<(RADIUS*2) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 1
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 1
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 1
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 1
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 1
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 1
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 1
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 1
+        elif 0<event.x<(RADIUS*2) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 1
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 1
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 1
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 1
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 1
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 1
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 1
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 1
+        elif 0<event.x<(RADIUS*2) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 1
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 1
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 1
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 1
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 1
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 1
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 1
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 1
+    else:
+        if 0<event.x<(RADIUS*2) and 0<event.y<(RADIUS*2):
+            data['board'][col][row] = 2
+        elif (RADIUS*2)<event.x<(RADIUS*4) and event.y<(RADIUS*2):
+            data['board'][col][row] = 2
+        elif (RADIUS*4)<event.x<(RADIUS*6) and event.y<(RADIUS*2):
+            data['board'][col][row] = 2
+        elif (RADIUS*6)<event.x<(RADIUS*8) and event.y<(RADIUS*2):
+            data['board'][col][row] = 2
+        elif (RADIUS*8)<event.x<(RADIUS*10) and event.y<(RADIUS*2):
+            data['board'][col][row] = 2
+        elif (RADIUS*10)<event.x<(RADIUS*12) and event.y<(RADIUS*2):
+            data['board'][col][row] = 2
+        elif (RADIUS*12)<event.x<(RADIUS*14) and event.y<(RADIUS*2):
+            data['board'][col][row] = 2
+        elif (RADIUS*14)<event.x<(RADIUS*16) and event.y<(RADIUS*2):
+            data['board'][col][row] = 2
+        elif 0<event.x<(RADIUS*2) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 2
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 2
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 2
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 2
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 2
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 2
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 2
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*2)<event.y<(RADIUS*4):
+            data['board'][col][row] = 2
+        elif 0<event.x<(RADIUS*2) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 2
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 2
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 2
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 2
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 2
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 2
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 2
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*4)<event.y<(RADIUS*6):
+            data['board'][col][row] = 2
+        elif 0<event.x<(RADIUS*2) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 2
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 2
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 2
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 2
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 2
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 2
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 2
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*6)<event.y<(RADIUS*8):
+            data['board'][col][row] = 2
+        elif 0<event.x<(RADIUS*2) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 2
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 2
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 2
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 2
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 2
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 2
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 2
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*8)<event.y<(RADIUS*10):
+            data['board'][col][row] = 2
+        elif 0<event.x<(RADIUS*2) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 2
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 2
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 2
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 2
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 2
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 2
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 2
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*10)<event.y<(RADIUS*12):
+            data['board'][col][row] = 2
+        elif 0<event.x<(RADIUS*2) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 2
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 2
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 2
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 2
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 2
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 2
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 2
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*12)<event.y<(RADIUS*14):
+            data['board'][col][row] = 2
+        elif 0<event.x<(RADIUS*2) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 2
+        elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 2
+        elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 2
+        elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 2
+        elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 2
+        elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 2
+        elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 2
+        elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*14)<event.y<(RADIUS*16):
+            data['board'][col][row] = 2
+    data['turn']+=1
+    redrawAll()
+    
+
 def flipPieces(x,y):
     flipNorth(x,y)
     
@@ -328,9 +466,7 @@ if __name__ == '__main__':
     
     buildBoard()
     print(data['board'])
-    flipPieces(data['row'],data['col'])
-    flipSouthEast(data['row'],data['col'])
-    print(data['board'])
+    flipNorthEast(data['row'],data['col'])
     redrawAll()
     boardFull()
     winner()
