@@ -299,7 +299,22 @@ def mouseClick(event):
         print('6,6')
     elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*12)<event.y<(RADIUS*14):
         print('7,6')
-
+        elif 0<event.x<(RADIUS*2) and (RADIUS*12)<event.y<(RADIUS*14):
+        print("0,7")
+    elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*14)<event.y<(RADIUS*16):
+        print('1,7')
+    elif (RADIUS*4)<event.x<(RADIUS*6) and (RADIUS*14)<event.y<(RADIUS*16):
+        print('2,7')
+    elif (RADIUS*6)<event.x<(RADIUS*8) and (RADIUS*14)<event.y<(RADIUS*16):
+        print('3,7')
+    elif (RADIUS*8)<event.x<(RADIUS*10) and (RADIUS*14)<event.y<(RADIUS*16):
+        print("4,7")
+    elif (RADIUS*10)<event.x<(RADIUS*12) and (RADIUS*14)<event.y<(RADIUS*16):
+        print('5,7')
+    elif (RADIUS*12)<event.x<(RADIUS*14) and (RADIUS*14)<event.y<(RADIUS*16):
+        print('6,7')
+    elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*14)<event.y<(RADIUS*16):
+        print('7,7')
 def flipPieces(x,y):
     flipNorth(x,y)
     
