@@ -299,7 +299,7 @@ def mouseClick(event):
         print('6,6')
     elif (RADIUS*14)<event.x<(RADIUS*16) and (RADIUS*12)<event.y<(RADIUS*14):
         print('7,6')
-        elif 0<event.x<(RADIUS*2) and (RADIUS*12)<event.y<(RADIUS*14):
+    elif 0<event.x<(RADIUS*2) and (RADIUS*14)<event.y<(RADIUS*16):
         print("0,7")
     elif (RADIUS*2)<event.x<(RADIUS*4) and (RADIUS*14)<event.y<(RADIUS*16):
         print('1,7')
