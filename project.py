@@ -118,7 +118,6 @@ def flipSouth(x,y):
         data['board'][x][y+i] = 1
         for t in range(m+1):
             data['board'][x][y+t] = 1
-    redrawAll()
 
 def flipEast(x,y):
     i=1
@@ -130,7 +129,6 @@ def flipEast(x,y):
         data['board'][x+i][y] = 1
         for t in range(m+1):
             data['board'][x+t][y] = 1
-    redrawAll()
 
 def flipWest(x,y):
     i=1
@@ -146,49 +144,76 @@ def flipWest(x,y):
 def flipNorthEast(x,y):
     i=1
     m=0
-    while data['board'][x+i][y-i] == 2:
-        i+=1
-        m+=1
-    if data['board'][x+i][y-i] != '':
-        data['board'][x+i][y-i] = 1
-        for t in range(m+1):
-            data['board'][x+t][y-t] = 1
-    redrawAll()
+    if data['turn']%2 == 0:    
+        while data['board'][x+i][y-i] == 2:
+            i+=1
+            m+=1
+        if data['board'][x+i][y-i] != '':
+            data['board'][x+i][y-i] = 1
+            for t in range(m+1):
+                data['board'][x+t][y-t] = 1
+
 
 def flipNorthWest(x,y):
     i=1
     m=0
-    while data['board'][x-i][y-i] == 2:
-        i+=1
-        m+=1
-    if data['board'][x-i][y-i] != '':
-        data['board'][x-i][y-i] = 1
-        for t in range(m+1):
-            data['board'][x-t][y-t] = 1
-    redrawAll()
-    
+    if data['turn']%2 == 0:
+        while data['board'][x-i][y-i] == 2:
+            i+=1
+            m+=1
+        if data['board'][x-i][y-i] != '':
+            data['board'][x-i][y-i] = 1
+            for t in range(m+1):
+                data['board'][x-t][y-t] = 1
+    else:
+        while data['board'][x-i][y-i] == 1:
+            i+=1
+            m+=1
+        if data['board'][x-i][y-i] != '':
+            data['board'][x-i][y-i] = 2
+            for t in range(m+1):
+                data['board'][x-t][y-t] = 2 
+        
+        
 def flipSouthEast(x,y):
     i=1
     m=0
-    while data['board'][x+i][y+i] == 2:
-        i+=1
-        m+=1
-    if data['board'][x+i][y+i] != '':
-        data['board'][x+i][y+i] = 1
-        for t in range(m+1):
-            data['board'][x+t][y+t] = 1
-    
+    if data['turn']%2==0:
+        while data['board'][x+i][y+i] == 2:
+            i+=1
+            m+=1
+        if data['board'][x+i][y+i] != '':
+            data['board'][x+i][y+i] = 1
+            for t in range(m+1):
+                data['board'][x+t][y+t] = 1
+    else:
+        while data['board'][x+i][y+i] == 1:
+            i+=1
+            m+=1
+        if data['board'][x+i][y+i] != '':
+            data['board'][x+i][y+i] = 2
+            for t in range(m+1):
+                data['board'][x+t][y+t] = 2
+                
 def flipSouthWest(x,y):
     i=1
     m=0
-    while data['board'][x+i][y-i] == 2:
-        i+=1
-        m+=1
-    if data['board'][x+i][y-i] != '':
-        data['board'][x+i][y-i] = 1
-        for t in range(m+1):
-            data['board'][x+t][y-t] = 1
-    redrawAll()
+    if data['turn']%2 == 0:
+        while data['board'][x+i][y-i] == 2:
+            i+=1
+            m+=1
+        if data['board'][x+i][y-i] != '':
+            data['board'][x+i][y-i] = 1
+            for t in range(m+1):
+                data['board'][x+t][y-t] = 1
+    else:
+        while data['board'][x+i][y-i] == 1:
+            i+=1
+            m+=1
+        if data['board'][x+i][y-i] != '':
+            data['board'][x+i][y-i] = 2
+            for t in range(m+1):
+                data['board'][x+t][y-t] = 2
     
 def mouseClick(event):
     row = event.y/(2*RADIUS)
@@ -454,7 +479,6 @@ def mouseClick(event):
             data['board'][col][row] = 2
     data['turn']+=1
     flipPieces(data['row'],data['col'])
-    redrawAll()
     
 
 def flipPieces(x,y):
@@ -466,6 +490,7 @@ def flipPieces(x,y):
     flipSouthEast(x,y)
     flipNorthWest(x,y)
     flipSouthWest(x,y)
+    redrawAll()
     
 if __name__ == '__main__':
     
