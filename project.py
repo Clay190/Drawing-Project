@@ -214,18 +214,18 @@ def flipSouthWest(x,y):
         while data['board'][x+i][y-i] == 2:
             i+=1
             m+=1
-        if data['board'][x+i][y-i] != '':
-            data['board'][x+i][y-i] = 1
+        if data['board'][x-i][y+i] != '':
+            data['board'][x-i][y+i] = 1
             for t in range(m+1):
-                data['board'][x+t][y-t] = 1
+                data['board'][x-t][y+t] = 1
     else:
-        while data['board'][x+i][y-i] == 1:
+        while data['board'][x-i][y+i] == 1:
             i+=1
             m+=1
-        if data['board'][x+i][y-i] != '':
-            data['board'][x+i][y-i] = 2
+        if data['board'][x-i][y+i] != '':
+            data['board'][x-i][y+i] = 2
             for t in range(m+1):
-                data['board'][x+t][y-t] = 2
+                data['board'][x-t][y+t] = 2
     
 def mouseClick(event):
     row = int(event.y/(2*RADIUS))
@@ -254,8 +254,8 @@ if __name__ == '__main__':
     
     data = {}
     data['board'] = []
-    data['row'] = 3
-    data['col'] = 3
+    data['row'] = 0
+    data['col'] = 0
     data['turn'] = 0
     
     buildBoard()
