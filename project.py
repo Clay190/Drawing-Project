@@ -4,6 +4,7 @@
 
 from ggame import *
 
+#Constants in the program, these values can be changed and adjusted to change the visuals of the game
 RADIUS = 30
 LINESIZE = 1.4
 P1COLOR = Color(0xFFFFFF,1)
